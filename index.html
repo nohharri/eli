@@ -1,1 +1,48 @@
-Hello World!
+---
+layout: default
+title: Home
+---
+
+<div class="circle">
+  <img class="img-circle" id="eli-profile" src="/img/eli_profile.jpg">
+</div>
+<div class="hola-header">¡Hola! Soy Elizabeth.</div>
+<div style="width: 160px; height: 50px; margin: 0 auto">
+  <span><a href="http://www.facebook.com"><img width=50px style="float: left;" src="/img/Facebook.png"></a></span>
+  <span><a href="http://www.instagram.com"><img width=50px style="float: left;" src="/img/Instagram.png"></a></span>
+  <span><a href="http://www.linkedin.com"><img width=50px style="float: left;" src="/img/Linkedin.png"></a></span>
+</div>
+<p>This is where your bio goes. <b>Did you know</b> only 7% of job seekers have a website when 56% of hiring managers say that a website is the most impressive personal branding tool about a candidate? More than <span class="argentina-blue">70%</span> of recruiters have admitted to finding candidates through websites. <span class="argentina-blue">37%</span> of employers have used social media and internet resources to screen candidates. I know how stressful it was for me finding a job so I wanted to make the process a little bit easier for you.</p>
+
+<p> I hope you don't think I want you to come to America is because of inappropriate reasons. Travelling is one of my favorite things to do and I would love to share those experiences with you. New York is quite beautiful in the winter :)</p>
+
+<p>Hopefully this aids you in your job search!</p>
+
+<p>I love you <3</p>
+
+<div class="catalogue">
+  {% for post in paginator.posts %}
+    <a href="{{ post.url | prepend: site.url }}" class="catalogue-item">
+      <div>
+        <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
+        <h1 class="catalogue-title hover">{{ post.title }}</h1>
+        <div class="catalogue-line"></div>
+        <p>
+          {{ post.content | truncatewords: 30 | strip_html }}
+        </p>
+
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="left arrow">&#8592;</a>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.url }}" class="right arrow">&#8594;</a>
+  {% endif %}
+
+  <span>{{ paginator.page }}</span>
+</div>
